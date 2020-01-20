@@ -1,4 +1,5 @@
 import {Component} from '@angular/core';
+import {Task} from './_model/task.model';
 
 @Component({
     selector: 'fic-root',
@@ -7,4 +8,19 @@ import {Component} from '@angular/core';
 })
 export class AppComponent {
     title = 'fic-angular';
+
+    tasks: Task[] = [
+        new Task({title: 'Task 1', description: 'Content of task 1', isComplete: false, createAt: new Date()}),
+        new Task({title: 'Task 2', description: 'Content of task 2', isComplete: false, createAt: new Date()}),
+        new Task({title: 'Task 3', description: 'Content of task 3', isComplete: false, createAt: new Date()}),
+    ];
+
+    addTask() {
+        this.tasks.push(new Task({
+            title: `Task ${this.tasks.length + 1}`,
+            description: `Content of task ${this.tasks.length + 1}`,
+            isComplete: false,
+            createAt: new Date(),
+        }));
+    }
 }
