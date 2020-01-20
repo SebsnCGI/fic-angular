@@ -1,21 +1,28 @@
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Title} from '@angular/platform-browser';
+
 import {Task} from './_model/task.model';
+import {TaskService} from './services/task.service';
 
 @Component({
     selector: 'fic-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
-    title = 'fic-angular';
-
-    tasks: Task[] = [
-        new Task({title: 'Task 1', description: 'Content of task 1', isComplete: false, createAt: new Date()}),
-        new Task({title: 'Task 2', description: 'Content of task 2', isComplete: false, createAt: new Date()}),
-        new Task({title: 'Task 3', description: 'Content of task 3', isComplete: false, createAt: new Date()}),
-    ];
+export class AppComponent implements OnInit {
+    tasks: Task[];
 
     taskSelected: Task;
+
+    constructor(private title: Title, private task: TaskService) {
+        title.setTitle('Task Manager');
+    }
+
+    ngOnInit(): void {
+        this.tasks = this.task.getTasks();
+
+        console.log(this.tasks);
+    }
 
     selectTask(task: Task) {
         this.taskSelected = task;
