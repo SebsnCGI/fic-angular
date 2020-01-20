@@ -15,6 +15,12 @@ export class AppComponent {
         new Task({title: 'Task 3', description: 'Content of task 3', isComplete: false, createAt: new Date()}),
     ];
 
+    taskSelected: Task;
+
+    selectTask(task: Task) {
+        this.taskSelected = task;
+    }
+
     addTask() {
         this.tasks.push(new Task({
             title: `Task ${this.tasks.length + 1}`,

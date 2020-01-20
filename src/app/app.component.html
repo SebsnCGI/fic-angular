@@ -2,20 +2,20 @@
     <fic-header></fic-header>
 
     <div class="container content-app">
-        <div class="row">
+        <div class="row mb-3">
             <div class="col col-lg-12">
                 <h3 class="mb-3">Liste des tâches <button class="btn btn-primary float-right" (click)="addTask()">Ajouter une tâche</button></h3>
 
-                <ul class="list-group">
-                    <li class="list-group-item list-group-item-action" *ngFor="let task of tasks">
-                        <h5 class="mb-1">{{task.title}}</h5>
-                        <small>Créée le {{task.createAt}}</small>
-                    </li>
-                </ul>
+                <fic-tasks [tasks]="tasks" (taskSelected)="selectTask($event)"></fic-tasks>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col col-lg-12">
+                <fic-task *ngIf="taskSelected" [task]="taskSelected"></fic-task>
             </div>
         </div>
     </div>
 
     <fic-footer></fic-footer>
-
 </div>

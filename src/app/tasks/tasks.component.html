@@ -1,0 +1,9 @@
+<ul class="list-group">
+    <li class="list-group-item list-group-item-action" *ngFor="let task of tasks">
+        <div class="d-flex w-100 justify-content-between">
+            <h5 class="mb-1">{{task.title}}</h5>
+            <button class="btn btn-sm btn-secondary" (click)="selectTask(task)">Détail</button>
+        </div>
+        <small>Créée le {{task.createAt}}</small>
+    </li>
+</ul>
