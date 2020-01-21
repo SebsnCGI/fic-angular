@@ -11,6 +11,7 @@ import {AppComponent} from './app.component';
 import {RouterModule} from '@angular/router';
 import { TaskListComponent } from './tasks/task-list/task-list.component';
 import { AgoPipe } from './pipes/ago.pipe';
+import {ReactiveFormsModule} from '@angular/forms';
 
 @NgModule({
     declarations: [
@@ -29,22 +30,23 @@ import { AgoPipe } from './pipes/ago.pipe';
             {
                 path: '',
                 redirectTo: '/tasks',
-                pathMatch: 'full'
+                pathMatch: 'full',
             },
             {
-            path: 'tasks',
-            component: TasksComponent,
-            children: [
-                {
-                    path: '',
-                    component: TaskListComponent,
-                },
-                {
-                    path: 'add',
-                    component: TaskAddComponent,
-                }
-            ]
-        }])
+                path: 'tasks',
+                component: TasksComponent,
+                children: [
+                    {
+                        path: '',
+                        component: TaskListComponent,
+                    },
+                    {
+                        path: 'add',
+                        component: TaskAddComponent,
+                    },
+                ],
+            }]),
+        ReactiveFormsModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

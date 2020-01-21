@@ -9,7 +9,7 @@ moment.locale('fr');
 export class AgoPipe implements PipeTransform {
 
     transform(value: any, ...args: any[]): any {
-        let val: string = value.toString();
+        let val: string = (value) ? value.toString() : value;
         if (value) {
           val = moment(value).fromNow();
         }

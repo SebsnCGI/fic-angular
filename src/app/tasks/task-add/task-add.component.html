@@ -1,3 +1,26 @@
-<p>task-add works!</p>
+<div class="row">
+    <div class="col-lg-12">
+        <form [formGroup]="taskGroup" (ngSubmit)="submit()" novalidate>
+            <div class="form-group" [ngClass]="{'text-danger': (titleCtrl.dirty || titleCtrl.touched) && titleCtrl.hasError('required')}">
+                <label for="title">Titre</label>
+                <input type="text" [formControl]="titleCtrl" class="form-control" id="title" required>
+                <small id="emailHelp" class="form-text text-muted">Titre de la tâche</small>
+                <span *ngIf="(titleCtrl.dirty || titleCtrl.touched) && titleCtrl.hasError('required')">
+                    Ce champ est requis
+                </span>
+            </div>
 
-<button class="btn btn-primary" (click)="addTask()">Ajouter une tâche</button>
+            <div class="form-group" [ngClass]="{'text-danger': (descriptionCtrl.dirty || descriptionCtrl.touched) && descriptionCtrl.hasError('required')}">
+                <label for="description">Description</label>
+                <textarea class="form-control" [formControl]="descriptionCtrl" id="description" rows="3"></textarea>
+                <small id="emailHelp" class="form-text text-muted">Description de la tâche</small>
+                <span *ngIf="(descriptionCtrl.dirty || descriptionCtrl.touched) && descriptionCtrl.hasError('required')">
+                    Ce champ est requis
+                </span>
+            </div>
+
+            <button class="btn btn-primary" type="submit">Ajouter une tâche</button>
+        </form>
+    </div>
+</div>
+
