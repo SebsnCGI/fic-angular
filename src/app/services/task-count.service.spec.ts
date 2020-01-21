@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { TaskService } from './task.service';
+import { TaskCountService } from './task-count.service';
 
-describe('TaskService', () => {
+describe('TaskCountService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: TaskService = TestBed.get(TaskService);
+    const service: TaskCountService = TestBed.get(TaskCountService);
     expect(service).toBeTruthy();
   });
 });
