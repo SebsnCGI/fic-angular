@@ -1,5 +1,4 @@
-import {Component, EventEmitter, Input, Output} from '@angular/core';
-import {Task} from '../_model/task.model';
+import {Component} from '@angular/core';
 
 @Component({
     selector: 'fic-tasks',
@@ -7,10 +6,5 @@ import {Task} from '../_model/task.model';
     styleUrls: ['./tasks.component.scss'],
 })
 export class TasksComponent {
-    @Input() tasks: Task[] = [];
-    @Output() readonly taskSelected: EventEmitter<Task> = new EventEmitter<Task>();
 
-    selectTask(task: Task) {
-        this.taskSelected.emit(task);
-    }
 }
