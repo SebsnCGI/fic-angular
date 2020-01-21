@@ -10,6 +10,7 @@ import { TaskAddComponent } from './tasks/task-add/task-add.component';
 import {AppComponent} from './app.component';
 import {RouterModule} from '@angular/router';
 import { TaskListComponent } from './tasks/task-list/task-list.component';
+import { AgoPipe } from './pipes/ago.pipe';
 
 @NgModule({
     declarations: [
@@ -20,6 +21,7 @@ import { TaskListComponent } from './tasks/task-list/task-list.component';
         TaskComponent,
         TaskAddComponent,
         TaskListComponent,
+        AgoPipe,
     ],
     imports: [
         BrowserModule,

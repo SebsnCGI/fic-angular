@@ -1,4 +1,6 @@
-<h3 class="mb-3">Liste des tâches <button class="btn btn-primary float-right" [routerLink]="['/', 'tasks', 'add']">Ajouter une tâche</button></h3>
+<h3 class="mb-3">Liste des tâches
+    <button class="btn btn-primary float-right" [routerLink]="['/', 'tasks', 'add']">Ajouter une tâche</button>
+</h3>
 
 
 <div class="row mb-3">
@@ -9,7 +11,7 @@
                     <h5 class="mb-1">{{task.title}}</h5>
                     <button class="btn btn-sm btn-secondary" (click)="selectTask(task)">Détail</button>
                 </div>
-                <small>Créée le {{task.createAt}}</small>
+                <small>Créée le {{task.createAt | date: 'dd/MM/yyyy'}} | Modifiée {{task.updateAt | TimeAgo}}</small>
             </li>
         </ul>
     </div>
